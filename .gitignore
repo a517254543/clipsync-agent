@@ -20,7 +20,9 @@ config.local.json
 .env.*
 
 # ---- 运行产物 ----
-# output/ 里的样例内容包保留作演示，仅忽略临时文件
+# output/ 里的样例内容包 pack_*.json 保留作演示；音频与临时文件不入库
+output/*.mp3
+output/*.wav
 output/*.tmp
 *.log
 

@@ -1,0 +1,584 @@
+{
+  "task_id": "f464593985ea",
+  "meta": {
+    "keyword": "开学",
+    "industry": "教育",
+    "duration": 60,
+    "platforms": [
+      "douyin",
+      "xiaohongshu"
+    ],
+    "mode": "template",
+    "model": "local-template-engine",
+    "generated_at": "2026-08-30T17:34:19",
+    "elapsed_seconds": 0.0
+  },
+  "token_metering": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "estimated_cost_rmb": 0.0,
+    "note": "本地模板模式不消耗Token；接入LLM后按调用实测计量"
+  },
+  "perception": {
+    "keyword": "开学",
+    "industry": "教育",
+    "heat_score": 91,
+    "heat_level": "高热",
+    "audience": "18-35岁内容消费者",
+    "recommended_angle": {
+      "type": "对比反差",
+      "desc": "「做对 vs 做错」的开学对照，强化记忆点"
+    },
+    "suggested_title": "花了30天整理的开学攻略，看完少走80%弯路",
+    "best_post_window": "12:00-13:00 午休高峰",
+    "data_source": "微博热搜 + 抖音热榜 + 百度热搜（实时）",
+    "hot_hit": "命中 2 个平台热榜，最好排名 第1位",
+    "hot_matched": [
+      {
+        "rank": 1,
+        "title": "开学三件套齐涨价家长直呼吃不消",
+        "hot_value": 1332467,
+        "hot_text": "133.2万",
+        "label": "",
+        "source": "weibo",
+        "source_name": "微博",
+        "url": "https://s.weibo.com/weibo?q=#开学三件套齐涨价家长直呼吃不消#",
+        "safety": {
+          "safe": true,
+          "category": "常规",
+          "advice": ""
+        },
+        "match": "直接命中"
+      },
+      {
+        "rank": 7,
+        "title": "开学三件套齐涨价家长直呼吃不消",
+        "hot_value": 0,
+        "hot_text": "0",
+        "label": "",
+        "source": "baidu",
+        "source_name": "百度",
+        "url": "https://m.baidu.com/s?word=%E5%BC%80%E5%AD%A6%E4%B8%89%E4%BB%B6%E5%A5%97%E9%BD%90%E6%B6%A8%E4%BB%B7%E5%AE%B6%E9%95%BF%E7%9B%B4%E5%91%BC%E5%90%83%E4%B8%8D%E6%B6%88&sa=fyb_news",
+        "safety": {
+          "safe": true,
+          "category": "常规",
+          "advice": ""
+        },
+        "match": "直接命中"
+      }
+    ],
+    "hot_safety": {
+      "safe": true,
+      "category": "常规",
+      "advice": ""
+    },
+    "hot_updated_at": "17:34:19",
+    "hot_top": {
+      "微博热搜": [
+        {
+          "rank": 1,
+          "title": "开学三件套齐涨价家长直呼吃不消",
+          "hot_value": 1332467,
+          "hot_text": "133.2万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#开学三件套齐涨价家长直呼吃不消#",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 2,
+          "title": "网易云音乐 鸿蒙",
+          "hot_value": 883131,
+          "hot_text": "88.3万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=网易云音乐 鸿蒙",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 3,
+          "title": "本周这些数据值得关注",
+          "hot_value": 696420,
+          "hot_text": "69.6万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#本周这些数据值得关注#",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 4,
+          "title": "细胞抗老是智商税么",
+          "hot_value": 511239,
+          "hot_text": "51.1万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=细胞抗老是智商税么",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 4,
+          "title": "这三天请假难度堪比美国签证",
+          "hot_value": 505511,
+          "hot_text": "50.6万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=这三天请假难度堪比美国签证",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 5,
+          "title": "王菲一嗓子把李嫣吓一跳",
+          "hot_value": 503489,
+          "hot_text": "50.3万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#王菲一嗓子把李嫣吓一跳#",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 6,
+          "title": "TOP回应抄袭王源间奏",
+          "hot_value": 491088,
+          "hot_text": "49.1万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#TOP回应抄袭王源间奏#",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 7,
+          "title": "斗破苍穹动画",
+          "hot_value": 477568,
+          "hot_text": "47.8万",
+          "label": "新",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=斗破苍穹动画",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        }
+      ],
+      "抖音热榜": [
+        {
+          "rank": 1,
+          "title": "西藏泥石流已致16死546失联",
+          "hot_value": 11098415,
+          "hot_text": "1109.8万",
+          "label": "",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/西藏泥石流已致16死546失联",
+          "safety": {
+            "safe": false,
+            "category": "灾难事故",
+            "advice": "涉及灾难事故，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 2,
+          "title": "台风沙德尔抵达广西",
+          "hot_value": 11015554,
+          "hot_text": "1101.6万",
+          "label": "热",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/台风沙德尔抵达广西",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 3,
+          "title": "我国首次实现地月激光通信",
+          "hot_value": 10806166,
+          "hot_text": "1080.6万",
+          "label": "",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/我国首次实现地月激光通信",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 4,
+          "title": "中国女排今晚决赛对阵泰国",
+          "hot_value": 10804675,
+          "hot_text": "1080.5万",
+          "label": "",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/中国女排今晚决赛对阵泰国",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 5,
+          "title": "军训结束回家的我belike",
+          "hot_value": 10250254,
+          "hot_text": "1025.0万",
+          "label": "新",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/军训结束回家的我belike",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 6,
+          "title": "西藏泥石流灾害原因查明",
+          "hot_value": 10029919,
+          "hot_text": "1003.0万",
+          "label": "热",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/西藏泥石流灾害原因查明",
+          "safety": {
+            "safe": false,
+            "category": "灾难事故",
+            "advice": "涉及灾难事故，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 7,
+          "title": "直击钱塘江“鬼王潮”",
+          "hot_value": 8866044,
+          "hot_text": "886.6万",
+          "label": "新",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/直击钱塘江“鬼王潮”",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 8,
+          "title": "中国驻尼日尔大使馆发布安全提醒",
+          "hot_value": 8761292,
+          "hot_text": "876.1万",
+          "label": "",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/中国驻尼日尔大使馆发布安全提醒",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        }
+      ],
+      "百度热搜": [
+        {
+          "rank": 1,
+          "title": "习近平离京出席2026年上合组织峰会",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "置顶",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E4%B9%A0%E8%BF%91%E5%B9%B3%E7%A6%BB%E4%BA%AC%E5%87%BA%E5%B8%AD2026%E5%B9%B4%E4%B8%8A%E5%90%88%E7%BB%84%E7%BB%87%E5%B3%B0%E4%BC%9A&sa=fyb_news",
+          "safety": {
+            "safe": false,
+            "category": "涉政时政",
+            "advice": "涉及涉政时政，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 1,
+          "title": "西藏泥石流灾害原因现已查明",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E5%8E%9F%E5%9B%A0%E7%8E%B0%E5%B7%B2%E6%9F%A5%E6%98%8E&sa=fyb_news",
+          "safety": {
+            "safe": false,
+            "category": "灾难事故",
+            "advice": "涉及灾难事故，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 2,
+          "title": "南极冰川融化正释放剧毒水银",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E5%8D%97%E6%9E%81%E5%86%B0%E5%B7%9D%E8%9E%8D%E5%8C%96%E6%AD%A3%E9%87%8A%E6%94%BE%E5%89%A7%E6%AF%92%E6%B0%B4%E9%93%B6&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 3,
+          "title": "西藏吉隆泥石流灾害新闻发布会实录",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E8%A5%BF%E8%97%8F%E5%90%89%E9%9A%86%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E6%96%B0%E9%97%BB%E5%8F%91%E5%B8%83%E4%BC%9A%E5%AE%9E%E5%BD%95&sa=fyb_news",
+          "safety": {
+            "safe": false,
+            "category": "灾难事故",
+            "advice": "涉及灾难事故，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 4,
+          "title": "癌王胰腺癌迎来里程碑新药",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E7%99%8C%E7%8E%8B%E8%83%B0%E8%85%BA%E7%99%8C%E8%BF%8E%E6%9D%A5%E9%87%8C%E7%A8%8B%E7%A2%91%E6%96%B0%E8%8D%AF&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 5,
+          "title": "梅艳芳母亲去世",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E6%A2%85%E8%89%B3%E8%8A%B3%E6%AF%8D%E4%BA%B2%E5%8E%BB%E4%B8%96&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 6,
+          "title": "河南5人吃生鱼片全部确诊肝吸虫病",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E6%B2%B3%E5%8D%975%E4%BA%BA%E5%90%83%E7%94%9F%E9%B1%BC%E7%89%87%E5%85%A8%E9%83%A8%E7%A1%AE%E8%AF%8A%E8%82%9D%E5%90%B8%E8%99%AB%E7%97%85&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 7,
+          "title": "开学三件套齐涨价家长直呼吃不消",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E5%BC%80%E5%AD%A6%E4%B8%89%E4%BB%B6%E5%A5%97%E9%BD%90%E6%B6%A8%E4%BB%B7%E5%AE%B6%E9%95%BF%E7%9B%B4%E5%91%BC%E5%90%83%E4%B8%8D%E6%B6%88&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        }
+      ]
+    },
+    "live": true
+  },
+  "script": {
+    "title": "花了24天整理的开学攻略，看完少走80%弯路",
+    "duration": 60,
+    "storyboard": [
+      {
+        "镜号": "01",
+        "景别": "特写",
+        "画面": "手机屏幕上开学相关内容的滑动画面，字幕逐条弹出",
+        "台词": "花了24天整理的开学攻略，看完少走80%弯路",
+        "时长": "10.0s"
+      },
+      {
+        "镜号": "02",
+        "景别": "近景",
+        "画面": "博主正对镜头挑眉，做「嘘」的手势压低声音",
+        "台词": "今天用60秒，把开学这件事给你彻底讲透。",
+        "时长": "10.0s"
+      },
+      {
+        "镜号": "03",
+        "景别": "中景",
+        "画面": "博主坐在书桌前，桌上摆着与开学相关的道具",
+        "台词": "第一，先看底层逻辑。开学真正起作用的地方，从来不是工具，而是你先想清楚要什么。",
+        "时长": "10.0s"
+      },
+      {
+        "镜号": "04",
+        "景别": "全景",
+        "画面": "户外空镜一闪而过，字幕打出关键词大字",
+        "台词": "第二，记住三个关键动作：定目标、拆步骤、留反馈。别贪多，一次只解决开学里的一个核心问题。",
+        "时长": "10.0s"
+      },
+      {
+        "镜号": "05",
+        "景别": "特写",
+        "画面": "手写便签/白板列出「3个要点」，逐条划重点",
+        "台词": "第三，也是最多人忽略的——开学要做长期主义，爆一次靠运气，持续爆靠体系。",
+        "时长": "10.0s"
+      },
+      {
+        "镜号": "06",
+        "景别": "近景",
+        "画面": "博主竖起手指逐条讲解，语速加快",
+        "台词": "关注我，下期拆解开学的进阶玩法",
+        "时长": "10.0s"
+      }
+    ],
+    "narration": "花了24天整理的开学攻略，看完少走80%弯路 今天用60秒，把开学这件事给你彻底讲透。 第一，先看底层逻辑。开学真正起作用的地方，从来不是工具，而是你先想清楚要什么。 第二，记住三个关键动作：定目标、拆步骤、留反馈。别贪多，一次只解决开学里的一个核心问题。 第三，也是最多人忽略的——开学要做长期主义，爆一次靠运气，持续爆靠体系。 关注我，下期拆解开学的进阶玩法",
+    "subtitles": [
+      "01 花了24天整理的开学攻略…",
+      "02 今天用60秒，把开学这件…",
+      "03 第一，先看底层逻辑。开学…",
+      "04 第二，记住三个关键动作：…",
+      "05 第三，也是最多人忽略的—…",
+      "06 关注我，下期拆解开学的进…"
+    ],
+    "bgm": {
+      "style": "Lo-fi 舒缓节拍，适合口播讲解，音量压至 -18dB",
+      "volume": "-18dB（人声-6dB）",
+      "cut_points": "每个分镜切换处对齐节拍"
+    },
+    "tts_text": "花了24天整理的开学攻略，看完少走80%弯路 今天用60秒，把开学这件事给你彻底讲透。 第一，先看底层逻辑。开学真正起作用的地方，从来不是工具，而是你先想清楚要什么。 第二，记住三个关键动作：定目标、拆步骤、留反馈。别贪多，一次只解决开学里的一个核心问题。 第三，也是最多人忽略的——开学要做长期主义，爆一次靠运气，持续爆靠体系。 关注我，下期拆解开学的进阶玩法"
+  },
+  "platform_copies": {
+    "douyin": {
+      "name": "抖音",
+      "style_tips": "强钩子短句 + 黄金3秒；台词口语化、每句≤15字；结尾强CTA",
+      "title": "花了24天整理的开学攻略，看完少走8｜开学保姆级教程",
+      "copy": "🔥 花了24天整理的开学攻略，看完少走80%弯路\n\n① 别闷头研究，开学先定目标\n② 拆3步：定目标→拆步骤→留反馈\n③ 长期主义才是王道\n\n👇 评论区扣「1」，攻略直接发你\n#开学 #干货分享 #新手必看",
+      "tags": [
+        "#开学",
+        "#干货分享",
+        "#新手必看",
+        "#三分钟教程"
+      ]
+    },
+    "xiaohongshu": {
+      "name": "小红书",
+      "style_tips": "种草笔记体；emoji 分段；文末挂 5-8 个话题标签；真诚不硬广",
+      "title": "开学保姆级攻略｜5个技巧帮你省下16天试错✨",
+      "copy": "✨ 姐妹们！开学这块我终于趟明白了！\n\n📌 划重点：\n1️⃣ 先想清楚目标，别上来就囤工具\n2️⃣ 拆成3步走，每步只解决一个问题\n3️⃣ 留反馈渠道，每周复盘一次\n\n💡 真心话：开学真的不难，难的是开始。\n踩过坑的都懂，方法对了事半功倍✨\n\n评论区聊聊你的经历，互帮互助～\n# 开学 #新手攻略 #自我提升 #干货笔记 #经验分享",
+      "tags": [
+        "# 开学",
+        "#新手攻略",
+        "#自我提升",
+        "#干货笔记",
+        "#经验分享"
+      ]
+    }
+  },
+  "reflection": {
+    "compliance": {
+      "passed": true,
+      "aigc_label": "已按《生成式人工智能服务管理暂行办法》要求，建议成片添加「AI生成」显式标识",
+      "sensitive_findings": [],
+      "topic_safety": {
+        "safe": true,
+        "category": "常规",
+        "advice": ""
+      }
+    },
+    "style_consistency": {
+      "overall_score": 95,
+      "platform_scores": {
+        "douyin": {
+          "score": 90,
+          "notes": [
+            "开头缺少钩子（提问/惊叹），黄金3秒吸引力不足"
+          ],
+          "platform": "抖音"
+        },
+        "xiaohongshu": {
+          "score": 100,
+          "notes": [
+            "风格特征符合平台调性"
+          ],
+          "platform": "小红书"
+        }
+      }
+    },
+    "rewrite_suggestions": [
+      "[抖音] 开头缺少钩子（提问/惊叹），黄金3秒吸引力不足"
+    ],
+    "fact_check": {
+      "strategy": "关键数据发布前需联网核验或替换为可溯源数据",
+      "verified_fields": [
+        "价格区间",
+        "平台规则",
+        "行业数据"
+      ]
+    }
+  },
+  "export": {
+    "json": "可下载完整JSON",
+    "docs": "可下载Markdown脚本文档",
+    "editing": "分镜表可直接导入剪映/CapCut参照拍摄"
+  }
+}

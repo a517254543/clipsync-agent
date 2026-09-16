@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一拍即合 ClipSync Agent · 短视频脚本智造</title>
+<style>
+:root{
+  --bg:#0f1020;--card:#181a30;--card2:#1f2240;--line:#2c2f55;
+  --txt:#eef0ff;--sub:#9aa0d0;--brand:#7c5cff;--brand2:#ff5c8a;
+  --ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.logo{width:44px;height:44px;border-radius:12px;object-fit:cover;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.cover{width:100%;border-radius:18px;border:1px solid var(--line);margin-bottom:22px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+h1{font-size:22px;font-weight:700}
+.badge{font-size:12px;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+.sub{color:var(--sub);font-size:13px;margin-bottom:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:18px}
+.formgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:14px}
+label{display:block;font-size:13px;color:var(--sub);margin-bottom:7px}
+input,select{width:100%;background:var(--card2);border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:11px 14px;font-size:15px;outline:none}
+input:focus,select:focus{border-color:var(--brand)}
+.plats{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.plat{display:flex;align-items:center;gap:8px;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-size:14px;cursor:pointer;user-select:none}
+.plat.on{border-color:var(--brand);background:rgba(124,92,255,.15)}
+.hot{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:18px}
+.hothead{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.hothead b{font-size:15px}
+.hothead .t{font-size:12px;color:var(--sub)}
+.hotcols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hotcol h5{font-size:13px;color:var(--brand2);margin-bottom:8px;display:flex;justify-content:space-between}
+.hotcol h5 span{color:var(--sub);font-weight:400}
+.hotitem{display:flex;gap:8px;font-size:13px;padding:5px 0;line-height:1.5;cursor:pointer;border-radius:6px}
+.hotitem:hover{background:var(--card2)}
+.hotitem .r{color:var(--sub);min-width:18px;font-variant-numeric:tabular-nums}
+.hotitem .t{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hotitem .v{color:var(--sub);font-size:12px}
+.hotitem.risk .t{color:var(--warn)}
+.hotitem.risk .t::after{content:" ⚠";font-size:11px}
+.hotempty{font-size:12px;color:var(--err);padding:6px 0}
+@media(max-width:760px){.hotcols{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}}
+.btn{margin-top:20px;width:100%;padding:15px;border:none;border-radius:12px;font-size:16px;font-weight:700;color:#fff;cursor:pointer;background:linear-gradient(135deg,var(--brand),var(--brand2));transition:.2s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.steps{display:flex;gap:10px;margin-bottom:18px}
+.step{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-size:13px;color:var(--sub);transition:.3s}
+.step b{display:block;font-size:14px;color:var(--txt);margin-bottom:3px}
+.step.run{border-color:var(--brand);background:rgba(124,92,255,.12)}
+.step.done{border-color:var(--ok)}
+.step.done b::after{content:" ✓";color:var(--ok)}
+#result{display:none}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tab{background:none;border:1px solid var(--line);color:var(--sub);border-radius:99px;padding:7px 16px;font-size:13px;cursor:pointer}
+.tab.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.panel{display:none}.panel.on{display:block}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+th{background:var(--card2);color:var(--sub);font-weight:600;white-space:nowrap}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:8px 14px;font-size:14px;line-height:1.7}
+.kv .k{color:var(--sub)}
+.pill{display:inline-block;border-radius:99px;padding:2px 10px;font-size:12px;margin-right:6px}
+.pill.hot{background:rgba(255,91,138,.18);color:var(--brand2)}
+.pill.warm{background:rgba(255,184,77,.15);color:var(--warn)}
+.pill.cool{background:rgba(61,220,151,.12);color:var(--ok)}
+.copybox{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px;white-space:pre-wrap;font-size:14px;line-height:1.8}
+.copybox h4{font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.copybox .tips{font-size:12px;color:var(--sub);font-weight:400;margin-left:8px}
+.rowbtns{display:flex;gap:10px;margin-top:12px}
+.mini{background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:7px 14px;font-size:13px;cursor:pointer}
+.mini:hover{border-color:var(--brand)}
+.score{font-size:30px;font-weight:800;color:var(--ok)}
+.finding{padding:10px 14px;border-radius:10px;margin-bottom:8px;font-size:13px;line-height:1.6;background:var(--card2);border-left:3px solid var(--warn)}
+.finding.risk{border-left-color:var(--err)}
+.finding.okk{border-left-color:var(--ok)}
+audio{width:100%;margin-top:10px}
+pre{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:16px;font-size:12px;overflow:auto;max-height:520px;line-height:1.6}
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--brand);border-radius:10px;padding:10px 20px;font-size:14px;display:none;z-index:99}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--brand);border-top-color:transparent;border-radius:50%;animation:r 0.8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes r{to{transform:rotate(360deg)}}
+.foot{color:var(--sub);font-size:12px;text-align:center;margin-top:30px;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img src="/static/cover.png" alt="一拍即合封面图" class="cover">
+  <header>
+    <img src="/static/logo.png" alt="一拍即合LOGO" class="logo">
+    <h1>一拍即合 · ClipSync Agent</h1>
+    <span class="badge" id="modeBadge">检测中…</span>
+  </header>
+
+  <div class="hot" id="hotbox">
+    <div class="hothead">
+      <b>🔥 实时热榜</b>
+      <span class="t" id="hottime">加载中…</span>
+      <button class="mini" style="margin-left:auto" onclick="loadHot(true)">↻ 刷新</button>
+    </div>
+    <div class="hotcols" id="hotcols"></div>
+    <div class="t" style="font-size:12px;color:var(--sub);margin-top:10px">点击任意热点词可直接填入关键词 · 标 ⚠ 的为涉政/灾难/案件类，不建议商业化改编</div>
+  </div>
+
+  <div class="hot" id="stasisbox" style="display:none">
+    <div class="hothead">
+      <b>💡 争点选题备选标题</b>
+      <span class="t" id="stasistime"></span>
+      <button class="mini" style="margin-left:auto" onclick="loadStasis($('kw').value)">✨ 重新生成</button>
+    </div>
+    <div id="stasislist"></div>
+    <div class="t" style="font-size:12px;color:var(--sub);margin-top:10px">基于 stasis 争点选题法（亚里士多德修辞学）离线生成 · 点击任一标题填入下方「定制标题」· 无需大模型 Key / 本地 Ollama</div>
+  </div>
+
+  <div class="sub">输入一个关键词，输出一套可拍、可发、可配音的内容包 —— 热点感知 → 脚本分镜 → 多平台文案 → AI 配音</div>
+
+  <div class="card" id="llmcard">
+    <div class="hothead" style="margin-bottom:14px;cursor:pointer" onclick="toggleLLM()">
+      <b>⚙️ 大模型 / Ollama 配置</b>
+      <span class="t" id="llmState">展开设置…</span>
+      <span class="badge" id="llmBadge" style="margin-left:auto">本地模板</span>
+    </div>
+    <div id="llmPanel" style="display:none">
+      <div class="formgrid">
+        <div>
+          <label>服务商</label>
+          <select id="provider" onchange="onProvider()">
+            <option value="deepseek">DeepSeek</option>
+            <option value="qwen">通义千问 Qwen</option>
+            <option value="glm">智谱 GLM</option>
+            <option value="ollama">本地 Ollama</option>
+            <option value="custom">自定义 OpenAI 兼容</option>
+          </select>
+        </div>
+        <div>
+          <label>模型</label>
+          <select id="modelSel" style="display:none"></select>
+          <input id="model" placeholder="如 deepseek-chat / qwen-plus">
+        </div>
+        <div>
+          <label>读超时（秒）</label>
+          <input id="timeout" type="number" value="60" min="5" max="300">
+        </div>
+      </div>
+      <div class="formgrid" style="margin-top:14px">
+        <div style="grid-column:1 / span 2">
+          <label>API Key <span id="keyHint" style="color:var(--sub)"></span></label>
+          <input id="apikey" type="password" placeholder="填入服务商 API Key（本地 Ollama 可留空）">
+        </div>
+        <div>
+          <label>Base URL</label>
+          <input id="baseurl" placeholder="http://localhost:11434/v1">
+        </div>
+      </div>
+      <div class="rowbtns">
+        <button class="mini" onclick="testLLM()">🔌 测试连接</button>
+        <button class="btn" style="margin-top:0;width:auto;padding:10px 22px" onclick="saveLLM()">💾 保存配置</button>
+        <button class="mini" onclick="resetLLM()">↺ 恢复本地模板</button>
+        <span id="llmMsg" style="font-size:13px;align-self:center"></span>
+      </div>
+      <div class="t" style="font-size:12px;color:var(--sub);margin-top:12px">配置保存在 exe 同级 config.json，无需重启；选择「本地 Ollama」后将自动拉取已安装模型。无 Key / Ollama 未启动时会自动回落本地模板引擎。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="formgrid">
+      <div>
+        <label>热点关键词 *</label>
+        <input id="kw" placeholder="例如：宁夏枸杞、沙坡头、辣糊糊、民宿避坑…" value="沙坡头星空营地">
+      </div>
+      <div>
+        <label>行业</label>
+        <select id="ind">
+          <option value="">通用</option><option>文旅</option><option>电商</option>
+          <option>餐饮</option><option>本地生活</option><option>知识付费</option>
+        </select>
+      </div>
+      <div>
+        <label>视频时长</label>
+        <select id="dur"><option value="30">30 秒</option><option value="60" selected>60 秒</option><option value="90">90 秒</option></select>
+      </div>
+    </div>
+    <div class="plats" id="plats">
+      <div class="plat on" data-p="douyin">抖音</div>
+      <div class="plat on" data-p="bilibili">B站</div>
+      <div class="plat on" data-p="xiaohongshu">小红书</div>
+    </div>
+    <div style="margin-top:14px">
+      <label>定制标题（可选）</label>
+      <input id="title" placeholder="留空则自动生成；也可点击上方「争点选题备选标题」一键填入">
+    </div>
+    <button class="btn" id="go" onclick="generate()">⚡ 一拍即合 · 生成内容包</button>
+  </div>
+
+  <div class="steps" id="steps" style="display:none">
+    <div class="step" id="s1"><b>① 感知</b>热点抓取 · 选题研判</div>
+    <div class="step" id="s2"><b>② 规划</b>脚本大纲 · 分镜设计</div>
+    <div class="step" id="s3"><b>③ 执行</b>三平台文案 · 配音文本</div>
+    <div class="step" id="s4"><b>④ 反思</b>合规校验 · 风格评分</div>
+  </div>
+
+  <div id="result">
+    <div class="tabs">
+      <button class="tab on" data-t="p1">📊 热点研判</button>
+      <button class="tab" data-t="p2">🎬 分镜脚本</button>
+      <button class="tab" data-t="p3">📱 多平台文案</button>
+      <button class="tab" data-t="p4">🛡️ 合规反思</button>
+      <button class="tab" data-t="p5">📦 JSON 内容包</button>
+    </div>
+    <div class="panel on" id="p1"><div class="card" id="perception"></div></div>
+    <div class="panel" id="p2"><div class="card" id="scriptPanel"></div></div>
+    <div class="panel" id="p3"><div class="card" id="copies"></div></div>
+    <div class="panel" id="p4"><div class="card" id="reflection"></div></div>
+    <div class="panel" id="p5"><div class="card"><pre id="json"></pre>
+      <div class="rowbtns"><button class="mini" onclick="dl()">⬇ 下载 JSON 内容包</button>
+      <button class="mini" onclick="dlmd()">⬇ 下载 Markdown 脚本</button></div></div></div>
+  </div>
+
+  <div class="foot">一拍即合 ClipSync Agent v0.2 · OPC轻创赛道 · 短视频内容生产与新媒体营销场景<br>
+  架构：感知—规划—执行—反思四步工作流 ｜ 热点来源：微博/抖音/百度实时热榜 ｜ 争点选题：stasis 离线引擎（无需大模型 Key / 本地 Ollama）</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+let PACK=null;
+const $=id=>document.getElementById(id);
+document.querySelectorAll('.plat').forEach(el=>el.onclick=()=>el.classList.toggle('on'));
+document.querySelectorAll('.tab').forEach(el=>el.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  el.classList.add('on');$(el.dataset.t).classList.add('on');
+});
+fetch('/api/config').then(r=>r.json()).then(c=>{
+  $('modeBadge').textContent=c.llm_enabled?('大模型：'+c.display_model):'本地模板模式 · 无需大模型';
+  $('llmBadge').textContent=c.llm_enabled?(c.provider_name+'：'+(c.model||'')):'本地模板';
+  $('llmState').textContent=c.llm_enabled?'已启用大模型 / 本地 Ollama':'当前为本地模板模式';
+  // 回填已保存配置到表单
+  if(c.provider)$('provider').value=c.provider;
+  if(c.base_url)$('baseurl').value=c.base_url;
+  if(c.model)$('model').value=c.model;
+  onProvider();
+});
+function toast(m){const t=$('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2500)}
+
+async function loadHot(refresh){
+  const box=$('hotcols');
+  if(!refresh)box.innerHTML='<div class="t" style="color:var(--sub);font-size:13px">正在拉取微博 / 抖音 / 百度热榜…</div>';
+  try{
+    const d=await (await fetch('/api/hotsearch?limit=10'+(refresh?'&refresh=1':''))).json();
+    $('hottime').textContent = d.ok? ('更新于 '+d.updated_at+' · 三平台实时') : '热榜暂不可用（将回退本地研判）';
+    box.innerHTML=(d.platforms||[]).map(p=>`
+      <div class="hotcol"><h5>${esc(p.name)}<span>${p.ok?p.items.length+'条':'失败'}</span></h5>
+      ${p.ok? p.items.map(it=>`<div class="hotitem ${it.safety&&!it.safety.safe?'risk':''}" onclick="useKw('${esc(it.title).replace(/'/g,"\\'")}')" title="${esc(it.safety&&!it.safety.safe?it.safety.advice:'')}">
+        <span class="r">${esc(it.rank)}</span><span class="t">${esc(it.title)}</span><span class="v">${esc(it.hot_text)}</span></div>`).join('')
+        : `<div class="hotempty">${esc(p.error||'接口不可用')}</div>`}
+      </div>`).join('');
+  }catch(e){box.innerHTML=`<div class="hotempty">热榜加载失败：${esc(e.message||e)}</div>`}
+}
+function useKw(t){$('kw').value=t;toast('已填入关键词：'+t);loadStasis(t);window.scrollTo({top:0,behavior:'smooth'})}
+
+async function loadStasis(kw){
+  kw=(kw||'').trim();
+  const box=$('stasisbox'), list=$('stasislist');
+  if(!kw){box.style.display='none';return}
+  $('stasistime').textContent='生成中…';
+  try{
+    const d=await (await fetch('/api/stasis?keyword='+encodeURIComponent(kw)+'&industry='+encodeURIComponent($('ind').value))).json();
+    if(!d.ok){box.style.display='none';return}
+    $('stasistime').textContent='领域：'+d.domain+' · '+d.titles.length+' 个备选';
+    list.innerHTML=d.titles.map((t,i)=>`<div class="hotitem" onclick="pickStasis(this)" data-title="${esc(t.title)}" title="点击填入定制标题 · ${esc(t.note)}">
+        <span class="r">${i+1}</span><span class="t">${esc(t.title)}</span><span class="v">${esc(t.type)}</span></div>`).join('')
+      + `<div class="t" style="font-size:12px;color:var(--sub);margin-top:8px">三要素：共同事实 ✓ · 不同解释 ✓ · 必须判断 ✓ ｜ ${esc(d.three_elements.must_judge)}</div>`;
+    box.style.display='block';
+  }catch(e){box.style.display='none'}
+}
+function pickStasis(el){$('title').value=el.dataset.title;toast('已填入定制标题：'+el.dataset.title);$('title').focus()}
+loadHot();
+function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
+async function step(i,fn){const el=$('s'+i);el.className='step run';await sleep(420);await fn();el.className='step done'}
+
+async function generate(){
+  const kw=$('kw').value.trim();
+  if(!kw){toast('请输入关键词');return}
+  const plats=[...document.querySelectorAll('.plat.on')].map(e=>e.dataset.p);
+  const body={keyword:kw,duration:+$('dur').value,industry:$('ind').value,platforms:plats,title:$('title').value.trim()};
+  $('go').disabled=true;$('go').innerHTML='<span class="spin"></span>Agent 工作流执行中…';
+  $('steps').style.display='flex';
+  ['s1','s2','s3','s4'].forEach(s=>$(s).className='step');
+  let data=null,err=null;
+  await step(1,async()=>{try{const r=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});data=await r.json();if(data.detail){err=JSON.stringify(data.detail);data=null}}catch(e){err=e.message}}).catch(()=>{});
+  // 展示四步动画（请求为一次性完成，用动画呈现工作流阶段）
+  await step(2,async()=>{});
+  await step(3,async()=>{});
+  await step(4,async()=>{});
+  $('go').disabled=false;$('go').textContent='⚡ 一拍即合 · 生成内容包';
+  if(!data){toast('生成失败：'+(err||'未知错误'));return}
+  PACK=data;render(data);
+}
+function esc(s){return String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+
+// ── 大模型 / Ollama 配置 ────────────────────────────────
+function toggleLLM(){$('llmPanel').style.display=$('llmPanel').style.display==='none'?'block':'none'}
+function onProvider(){
+  const p=$('provider').value;
+  const ollama=p==='ollama';
+  const cloud=(p==='deepseek'||p==='qwen'||p==='glm');
+  $('keyHint').textContent=ollama?'（本地 Ollama 可留空）':(cloud?'（必填）':'（自定义需填写）');
+  $('apikey').disabled=ollama;
+  $('apikey').style.opacity=ollama?'.5':'1';
+  if(ollama){
+    $('baseurl').value=$('baseurl').value||'http://localhost:11434/v1';
+    loadOllamaModels();
+  }else if(cloud){
+    const presets={deepseek:'https://api.deepseek.com/v1',qwen:'https://dashscope.aliyuncs.com/compatible-mode/v1',glm:'https://open.bigmodel.cn/api/paas/v4'};
+    if(!$('baseurl').value||$('baseurl').value.indexOf('localhost')>=0)$('baseurl').value=presets[p];
+    const dm={deepseek:'deepseek-chat',qwen:'qwen-plus',glm:'glm-4-flash'};
+    if(!$('model').value)$('model').value=dm[p];
+    $('modelSel').style.display='none';$('model').style.display='block';
+  }else{
+    $('modelSel').style.display='none';$('model').style.display='block';
+    if($('baseurl').value.indexOf('localhost')>=0)$('baseurl').value='';
+  }
+}
+async function loadOllamaModels(){
+  try{
+    const d=await (await fetch('/api/ollama/models?base_url='+encodeURIComponent($('baseurl').value))).json();
+    const sel=$('modelSel'),inp=$('model');
+    if(d.available&&d.models.length){
+      sel.innerHTML=d.models.map(m=>`<option value="${esc(m)}">${esc(m)}</option>`).join('');
+      sel.style.display='block';inp.style.display='none';
+      sel.onchange=()=>{inp.value=sel.value};
+      sel.value=d.models[0];inp.value=d.models[0];
+    }else{
+      sel.style.display='none';inp.style.display='block';
+      $('modelMsg')&&($('modelMsg').textContent='');
+      if(!d.available)toast('未检测到本地 Ollama 服务（localhost:11434）');
+    }
+  }catch(e){toast('Ollama 模型拉取失败：'+(e.message||e))}
+}
+function llmForm(){
+  return {provider:$('provider').value,api_key:$('apikey').value,base_url:$('baseurl').value,
+          model:($('modelSel').style.display!=='none'?$('modelSel').value:$('model').value),
+          timeout:+$('timeout').value||60};
+}
+async function testLLM(){
+  const body=llmForm();
+  if(body.provider==='ollama'&&!$('baseurl').value)$('baseurl').value='http://localhost:11434/v1';
+  $('llmMsg').textContent='连接测试中…';$('llmMsg').style.color='var(--sub)';
+  try{
+    const d=await (await fetch('/api/llm-test',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})).json();
+    if(d.ok){$('llmMsg').textContent='✅ 连接成功：'+esc(d.model)+(d.reply?(' → '+esc(d.reply)):'');$('llmMsg').style.color='var(--ok)'}
+    else{$('llmMsg').textContent='❌ '+esc(d.error);$('llmMsg').style.color='var(--err)'}
+  }catch(e){$('llmMsg').textContent='❌ '+esc(e.message||e);$('llmMsg').style.color='var(--err)'}
+}
+async function saveLLM(){
+  const body=llmForm();
+  if(body.provider==='ollama'&&!$('baseurl').value)$('baseurl').value='http://localhost:11434/v1';
+  $('llmMsg').textContent='保存中…';$('llmMsg').style.color='var(--sub)';
+  try{
+    const r=await fetch('/api/llm-config',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d=await r.json();
+    if(!r.ok||!d.ok){$('llmMsg').textContent='❌ '+esc(d.error||'保存失败');$('llmMsg').style.color='var(--err)';return}
+    $('llmMsg').textContent='✅ 已保存（'+esc(d.config.provider)+' / '+esc(d.config.model)+'）';$('llmMsg').style.color='var(--ok)';
+    // 刷新徽章
+    const c=await (await fetch('/api/config')).json();
+    $('modeBadge').textContent=c.llm_enabled?('大模型：'+c.display_model):'本地模板模式 · 无需大模型';
+    $('llmBadge').textContent=c.llm_enabled?(c.provider_name+'：'+(c.model||'')):'本地模板';
+    $('llmState').textContent=c.llm_enabled?'已启用大模型 / 本地 Ollama':'当前为本地模板模式';
+    if(c.provider==='ollama')loadOllamaModels();
+  }catch(e){$('llmMsg').textContent='❌ '+esc(e.message||e);$('llmMsg').style.color='var(--err)'}
+}
+async function resetLLM(){
+  try{
+    const r=await fetch('/api/llm-config',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({provider:'deepseek',api_key:'',base_url:'',model:'',timeout:60})});
+    const d=await r.json();
+    if(d.ok){toast('已恢复本地模板模式');$('provider').value='deepseek';onProvider();$('apikey').value='';$('model').value='';$('baseurl').value='';
+      $('modeBadge').textContent='本地模板模式 · 无需大模型';$('llmBadge').textContent='本地模板';$('llmState').textContent='当前为本地模板模式';$('llmMsg').textContent=''}
+  }catch(e){toast('恢复失败：'+(e.message||e))}
+}
+
+function render(d){
+  $('result').style.display='block';
+  // 热点研判
+  const p=d.perception,lvl=p.heat_level||'';
+  const cls=lvl==='高热'?'hot':(lvl==='升温'?'warm':'cool');
+  $('perception').innerHTML=`<div class="kv">
+    <div class="k">关键词</div><div><b>${esc(p.keyword)}</b> <span class="pill ${cls}">${esc(p.heat_level)} · 热度 ${esc(p.heat_score)}</span></div>
+    <div class="k">适配受众</div><div>${esc(p.audience)}</div>
+    <div class="k">推荐角度</div><div><b>${esc(p.recommended_angle?.type||'')}</b> — ${esc(p.recommended_angle?.desc||'')}</div>
+    <div class="k">建议标题</div><div>${esc(p.suggested_title)}</div>
+    <div class="k">最佳发布窗口</div><div>${esc(p.best_post_window)}</div>
+    <div class="k">热榜命中</div><div>${esc(p.hot_hit||'—')}${p.hot_updated_at?` <span class="pill cool">榜单更新 ${esc(p.hot_updated_at)}</span>`:''}</div>
+    ${(p.hot_matched&&p.hot_matched.length)?`<div class="k">相关热榜条目</div><div>${p.hot_matched.map(m=>`<span class="pill ${m.safety&&!m.safety.safe?'warm':'cool'}">${esc(m.source_name)}·${esc(m.title)}</span>`).join('')}</div>`:''}
+    <div class="k">数据来源</div><div>${esc(p.data_source)}${p.live?' <span class="pill hot">LIVE</span>':' <span class="pill warm">离线研判</span>'}</div>
+    <div class="k">生成模式</div><div>${esc(d.meta.mode)} · ${esc(d.meta.model)} · 耗时 ${esc(d.meta.elapsed_seconds)}s</div>
+    <div class="k">Token 消耗</div><div>${esc(d.token_metering.total_tokens)} tokens（输入 ${esc(d.token_metering.prompt_tokens)} / 输出 ${esc(d.token_metering.completion_tokens)}）</div>
+  </div>`;
+  // 分镜
+  const s=d.script,rows=(s.storyboard||[]).map(r=>`<tr><td>${esc(r['镜号']||r.shot||'')}</td><td>${esc(r['景别']||r.scale||'')}</td><td>${esc(r['画面']||r.visual||'')}</td><td>${esc(r['台词']||r.line||'')}</td><td>${esc(r['时长']||r.duration||'')}</td></tr>`).join('');
+  $('scriptPanel').innerHTML=`
+    <div class="kv"><div class="k">脚本标题</div><div><b>${esc(s.title)}</b></div></div>
+    <h4 style="margin:16px 0 4px">分镜表（可对照剪映/CapCut拍摄）</h4>
+    <table><tr><th>镜号</th><th>景别</th><th>画面</th><th>台词</th><th>时长</th></tr>${rows}</table>
+    <h4 style="margin:18px 0 6px">BGM 建议</h4>
+    <div class="copybox" style="white-space:normal">${esc(s.bgm?.style||'')}<br><span style="color:var(--sub)">音量 ${esc(s.bgm?.volume||'')} · 卡点 ${esc(s.bgm?.cut_points||'')}</span></div>
+    <div class="rowbtns"><button class="mini" onclick="tts(1)">🎙️ 生成完整口播配音</button></div>
+    <div id="ttsout1"></div>`;
+  // 平台文案
+  const names={douyin:'抖音',bilibili:'B站',xiaohongshu:'小红书'};
+  $('copies').innerHTML=Object.entries(d.platform_copies).map(([k,c])=>`
+    <div class="copybox"><h4>📱 ${esc(c.name||names[k])}<span class="tips">${esc(c.style_tips||'')}</span></h4>
+    <b>${esc(c.title)}</b><br><br>${esc(c.copy)}
+    <div class="rowbtns"><button class="mini" onclick="cp(this,'${esc(c.title)}\n\n${esc(c.copy).replace(/'/g,"\\'")}')">📋 复制文案</button>
+    <button class="mini" onclick="tts(2,'${k}')">🎙️ 生成配音</button></div><div id="ttsout2_${k}"></div></div>`).join('');
+  // 反思
+  const r=d.reflection;
+  const ts=r.compliance.topic_safety||{safe:true};
+  const f0=ts.safe?'':`<div class="finding risk">⛔ <b>选题安全提示</b>：${esc(ts.advice)}</div>`;
+  const f=f0+(r.compliance.sensitive_findings||[]).map(x=>`<div class="finding ${x.level==='高风险'?'risk':''}">⚠️ <b>${esc(x.word)}</b>（${esc(x.level)}）：${esc(x.advice)}</div>`).join('')||(ts.safe?'<div class="finding okk">✅ 未检出敏感词与高风险表述</div>':'');
+  const ps=Object.entries(r.style_consistency.platform_scores||{}).map(([k,v])=>`<tr><td>${esc(v.platform||k)}</td><td><b style="color:${v.score>=85?'var(--ok)':v.score>=70?'var(--warn)':'var(--err)'}">${esc(v.score)}</b></td><td>${(v.notes||[]).map(esc).join('<br>')}</td></tr>`).join('');
+  $('reflection').innerHTML=`
+    <div class="kv"><div class="k">整体风格一致性</div><div class="score">${esc(r.style_consistency.overall_score)}<span style="font-size:13px;color:var(--sub)"> / 100</span></div>
+    <div class="k">合规结论</div><div>${r.compliance.passed?'<span class="pill cool">通过</span>':'<span class="pill hot">需修改</span>'} ${esc(r.compliance.aigc_label)}</div></div>
+    <h4 style="margin:16px 0 8px">敏感词与风险检测</h4>${f}
+    <h4 style="margin:16px 0 8px">平台风格评分</h4>
+    <table><tr><th>平台</th><th>得分</th><th>说明</th></tr>${ps}</table>
+    <h4 style="margin:16px 0 8px">重写建议</h4>
+    ${(r.rewrite_suggestions||[]).map(x=>`<div class="finding">💡 ${esc(x)}</div>`).join('')||'<div class="finding okk">✅ 暂无必改项</div>'}`;
+  $('json').textContent=JSON.stringify(d,null,2);
+  $('result').scrollIntoView({behavior:'smooth'});
+}
+function cp(btn,txt){navigator.clipboard.writeText(txt).then(()=>toast('已复制到剪贴板'))}
+async function tts(mode,plat){
+  const el=mode===1?$('ttsout1'):$('ttsout2_'+plat);
+  const text=mode===1?PACK.script.tts_text||PACK.script.narration:(PACK.platform_copies[plat].title+'. '+PACK.platform_copies[plat].copy);
+  el.innerHTML='<div class="mini" style="display:inline-block"><span class="spin"></span>配音合成中（Edge-TTS）…</div>';
+  try{
+    const r=await fetch('/api/tts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,voice:'female'})});
+    const d=await r.json();
+    if(d.ok){el.innerHTML=`<audio controls src="${d.file}"></audio><div style="font-size:12px;color:var(--sub);margin-top:4px">${esc(d.voice)} · Edge-TTS</div>`}
+    else el.innerHTML=`<div class="finding risk">❌ ${esc(d.error)}</div>`;
+  }catch(e){el.innerHTML=`<div class="finding risk">❌ ${esc(e.message)}</div>`}
+}
+function dl(){window.open(PACK.export.json_file,'_blank')}
+function dlmd(){
+  const s=PACK.script,c=PACK.platform_copies;
+  let md=`# ${s.title}\n\n> 关键词：${PACK.meta.keyword} ｜ ${PACK.meta.duration}秒 ｜ ${PACK.meta.mode}模式\n\n## 分镜表\n\n| 镜号 | 景别 | 画面 | 台词 | 时长 |\n|---|---|---|---|---|\n`;
+  s.storyboard.forEach(r=>{md+=`| ${r['镜号']} | ${r['景别']} | ${r['画面']} | ${r['台词']} | ${r['时长']} |\n`});
+  md+=`\n## BGM\n${s.bgm.style}\n\n`;
+  Object.values(c).forEach(x=>{md+=`## ${x.name}：${x.title}\n\n${x.copy}\n\n`});
+  md+=`## 合规提示\n${PACK.reflection.compliance.aigc_label}\n`;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([md],{type:'text/markdown'}));
+  a.download=`clipsync_${PACK.meta.keyword}.md`;a.click();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---- PyInstaller 构建产物 ----
+# 免安装 exe 通过 GitHub Releases 分发，不入库
+build/
+build[0-9]/
+dist/
+*.manifest
+
+# ---- 本地配置 / 密钥 ----
+# config.json 只保留空 key 的模板；真实 Key 用环境变量 LLM_API_KEY 或本地覆盖
+config.local.json
+.env
+.env.*
+
+# ---- 运行产物 ----
+# output/ 里的样例内容包保留作演示，仅忽略临时文件
+output/*.tmp
+*.log
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

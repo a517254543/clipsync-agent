@@ -1,0 +1,597 @@
+{
+  "task_id": "dd9611e21cd8",
+  "meta": {
+    "keyword": "沙坡头星空营地",
+    "industry": "文旅",
+    "duration": 60,
+    "platforms": [
+      "douyin",
+      "xiaohongshu"
+    ],
+    "mode": "llm",
+    "model": "mock-gpt",
+    "generated_at": "2026-08-30T18:50:12",
+    "elapsed_seconds": 0.04
+  },
+  "token_metering": {
+    "prompt_tokens": 30,
+    "completion_tokens": 60,
+    "total_tokens": 90,
+    "estimated_cost_rmb": 0.0002,
+    "note": "本地模板模式不消耗Token；接入LLM后按调用实测计量"
+  },
+  "perception": {
+    "keyword": "沙坡头星空营地",
+    "industry": "文旅",
+    "heat_score": 90,
+    "heat_level": "高热",
+    "audience": "年轻家庭",
+    "recommended_angle": {
+      "type": "干货清单",
+      "desc": "避坑"
+    },
+    "suggested_title": "建议标题",
+    "best_post_window": "周五晚",
+    "data_source": "微博热搜 + 抖音热榜 + 百度热搜（实时）",
+    "hot_hit": "未进入三平台实时热榜（长尾/垂类关键词）",
+    "hot_matched": [],
+    "hot_safety": {
+      "safe": true,
+      "category": "常规",
+      "advice": ""
+    },
+    "hot_updated_at": "18:50:11",
+    "hot_top": {
+      "微博热搜": [
+        {
+          "rank": 1,
+          "title": "开学三件套齐涨价家长直呼吃不消",
+          "hot_value": 1164933,
+          "hot_text": "116.5万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#开学三件套齐涨价家长直呼吃不消#",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 2,
+          "title": "网易云音乐 鸿蒙",
+          "hot_value": 830169,
+          "hot_text": "83.0万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=网易云音乐 鸿蒙",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 3,
+          "title": "本周这些数据值得关注",
+          "hot_value": 653729,
+          "hot_text": "65.4万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#本周这些数据值得关注#",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 4,
+          "title": "邓凯给孔雪儿挡裙子",
+          "hot_value": 531445,
+          "hot_text": "53.1万",
+          "label": "新",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#邓凯给孔雪儿挡裙子#",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 5,
+          "title": "这三天请假难度堪比美国签证",
+          "hot_value": 310259,
+          "hot_text": "31.0万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=这三天请假难度堪比美国签证",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 6,
+          "title": "林一对王玉雯的崇拜达到顶峰",
+          "hot_value": 294644,
+          "hot_text": "29.5万",
+          "label": "新",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#林一对王玉雯的崇拜达到顶峰#",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 7,
+          "title": "便利店店主回应把视频发网上",
+          "hot_value": 244755,
+          "hot_text": "24.5万",
+          "label": "",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#便利店店主回应把视频发网上#",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 8,
+          "title": "JDG对战WE",
+          "hot_value": 244209,
+          "hot_text": "24.4万",
+          "label": "新",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=JDG对战WE",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 9,
+          "title": "中国女排vs泰国女排",
+          "hot_value": 242849,
+          "hot_text": "24.3万",
+          "label": "新",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=中国女排vs泰国女排",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 10,
+          "title": "敌敌畏消杀事件6人被刑拘",
+          "hot_value": 240275,
+          "hot_text": "24.0万",
+          "label": "新",
+          "source": "weibo",
+          "source_name": "微博",
+          "url": "https://s.weibo.com/weibo?q=#敌敌畏消杀事件6人被刑拘#",
+          "safety": {
+            "safe": false,
+            "category": "社会案件",
+            "advice": "涉及社会案件，不建议用于营销改编与蹭热点"
+          }
+        }
+      ],
+      "抖音热榜": [
+        {
+          "rank": 1,
+          "title": "西藏泥石流已致16死546失联",
+          "hot_value": 11567672,
+          "hot_text": "1156.8万",
+          "label": "",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/西藏泥石流已致16死546失联",
+          "safety": {
+            "safe": false,
+            "category": "灾难事故",
+            "advice": "涉及灾难事故，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 2,
+          "title": "中国女排vs泰国女排",
+          "hot_value": 11093816,
+          "hot_text": "1109.4万",
+          "label": "",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/中国女排vs泰国女排",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 3,
+          "title": "我国首次实现地月激光通信",
+          "hot_value": 11066814,
+          "hot_text": "1106.7万",
+          "label": "热",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/我国首次实现地月激光通信",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 4,
+          "title": "军训结束回家的我belike",
+          "hot_value": 10976016,
+          "hot_text": "1097.6万",
+          "label": "热",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/军训结束回家的我belike",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 5,
+          "title": "当我执意报考省外大学",
+          "hot_value": 10389028,
+          "hot_text": "1038.9万",
+          "label": "新",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/当我执意报考省外大学",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 6,
+          "title": "西藏泥石流灾害原因查明",
+          "hot_value": 10318575,
+          "hot_text": "1031.9万",
+          "label": "热",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/西藏泥石流灾害原因查明",
+          "safety": {
+            "safe": false,
+            "category": "灾难事故",
+            "advice": "涉及灾难事故，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 7,
+          "title": "直击钱塘江“鬼王潮”",
+          "hot_value": 9177384,
+          "hot_text": "917.7万",
+          "label": "新",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/直击钱塘江“鬼王潮”",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 8,
+          "title": "三只松鼠终止在港交所上市",
+          "hot_value": 9013612,
+          "hot_text": "901.4万",
+          "label": "新",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/三只松鼠终止在港交所上市",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 9,
+          "title": "切尔西官宣签下马丁内斯",
+          "hot_value": 8880284,
+          "hot_text": "888.0万",
+          "label": "新",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/切尔西官宣签下马丁内斯",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 10,
+          "title": "常冰玉谈首次夺冠感受",
+          "hot_value": 8557573,
+          "hot_text": "855.8万",
+          "label": "",
+          "source": "douyin",
+          "source_name": "抖音",
+          "url": "https://www.douyin.com/search/常冰玉谈首次夺冠感受",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        }
+      ],
+      "百度热搜": [
+        {
+          "rank": 1,
+          "title": "习近平离京出席2026年上合组织峰会",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "置顶",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E4%B9%A0%E8%BF%91%E5%B9%B3%E7%A6%BB%E4%BA%AC%E5%87%BA%E5%B8%AD2026%E5%B9%B4%E4%B8%8A%E5%90%88%E7%BB%84%E7%BB%87%E5%B3%B0%E4%BC%9A&sa=fyb_news",
+          "safety": {
+            "safe": false,
+            "category": "涉政时政",
+            "advice": "涉及涉政时政，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 1,
+          "title": "尼泊尔冰崩是因为全球变暖吗",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E5%B0%BC%E6%B3%8A%E5%B0%94%E5%86%B0%E5%B4%A9%E6%98%AF%E5%9B%A0%E4%B8%BA%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96%E5%90%97&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 2,
+          "title": "开学三件套齐涨价家长直呼吃不消",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E5%BC%80%E5%AD%A6%E4%B8%89%E4%BB%B6%E5%A5%97%E9%BD%90%E6%B6%A8%E4%BB%B7%E5%AE%B6%E9%95%BF%E7%9B%B4%E5%91%BC%E5%90%83%E4%B8%8D%E6%B6%88&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 3,
+          "title": "西藏吉隆泥石流灾害新闻发布会实录",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E8%A5%BF%E8%97%8F%E5%90%89%E9%9A%86%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E6%96%B0%E9%97%BB%E5%8F%91%E5%B8%83%E4%BC%9A%E5%AE%9E%E5%BD%95&sa=fyb_news",
+          "safety": {
+            "safe": false,
+            "category": "灾难事故",
+            "advice": "涉及灾难事故，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 4,
+          "title": "官方回应“取消ETC” 读懂车主真诉求",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E5%AE%98%E6%96%B9%E5%9B%9E%E5%BA%94%E2%80%9C%E5%8F%96%E6%B6%88ETC%E2%80%9D+%E8%AF%BB%E6%87%82%E8%BD%A6%E4%B8%BB%E7%9C%9F%E8%AF%89%E6%B1%82&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 5,
+          "title": "绿茶餐厅上半年赚了2.9亿元",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E7%BB%BF%E8%8C%B6%E9%A4%90%E5%8E%85%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%B5%9A%E4%BA%862.9%E4%BA%BF%E5%85%83&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 6,
+          "title": "南极冰川融化正释放剧毒水银",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E5%8D%97%E6%9E%81%E5%86%B0%E5%B7%9D%E8%9E%8D%E5%8C%96%E6%AD%A3%E9%87%8A%E6%94%BE%E5%89%A7%E6%AF%92%E6%B0%B4%E9%93%B6&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 7,
+          "title": "敌敌畏消杀事件6人被刑拘",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E6%95%8C%E6%95%8C%E7%95%8F%E6%B6%88%E6%9D%80%E4%BA%8B%E4%BB%B66%E4%BA%BA%E8%A2%AB%E5%88%91%E6%8B%98&sa=fyb_news",
+          "safety": {
+            "safe": false,
+            "category": "社会案件",
+            "advice": "涉及社会案件，不建议用于营销改编与蹭热点"
+          }
+        },
+        {
+          "rank": 8,
+          "title": "中国女排冲冠",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E4%B8%AD%E5%9B%BD%E5%A5%B3%E6%8E%92%E5%86%B2%E5%86%A0&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        },
+        {
+          "rank": 9,
+          "title": "梅艳芳母亲去世",
+          "hot_value": 0,
+          "hot_text": "0",
+          "label": "",
+          "source": "baidu",
+          "source_name": "百度",
+          "url": "https://m.baidu.com/s?word=%E6%A2%85%E8%89%B3%E8%8A%B3%E6%AF%8D%E4%BA%B2%E5%8E%BB%E4%B8%96&sa=fyb_news",
+          "safety": {
+            "safe": true,
+            "category": "常规",
+            "advice": ""
+          }
+        }
+      ]
+    },
+    "live": true
+  },
+  "script": {
+    "title": "【LLM生成】沙坡头观星避坑指南",
+    "storyboard": [
+      {
+        "镜号": 1,
+        "景别": "全景",
+        "画面": "星空营地全景",
+        "台词": "来沙坡头露营，第一步就错了",
+        "时长": "8秒"
+      }
+    ],
+    "narration": "这是LLM生成的口播稿",
+    "subtitles": [
+      "第一句"
+    ],
+    "bgm": {
+      "style": "轻快",
+      "volume": "30%",
+      "cut_points": "8s"
+    },
+    "tts_text": "这是LLM生成的口播稿",
+    "duration": 60
+  },
+  "platform_copies": {
+    "douyin": {
+      "name": "抖音",
+      "title": "抖音标题",
+      "copy": "抖音文案",
+      "tags": [
+        "#沙坡头"
+      ],
+      "style_tips": "黄金3秒"
+    },
+    "xiaohongshu": {
+      "name": "小红书",
+      "title": "小红书标题",
+      "copy": "小红书文案",
+      "tags": [
+        "#露营"
+      ],
+      "style_tips": "种草"
+    }
+  },
+  "reflection": {
+    "compliance": {
+      "passed": true,
+      "aigc_label": "已按《生成式人工智能服务管理暂行办法》要求，建议成片添加「AI生成」显式标识",
+      "sensitive_findings": [],
+      "topic_safety": {
+        "safe": true,
+        "category": "常规",
+        "advice": ""
+      }
+    },
+    "style_consistency": {
+      "overall_score": 80,
+      "platform_scores": {
+        "douyin": {
+          "score": 90,
+          "notes": [
+            "开头缺少钩子（提问/惊叹），黄金3秒吸引力不足"
+          ],
+          "platform": "抖音"
+        },
+        "xiaohongshu": {
+          "score": 70,
+          "notes": [
+            "缺少 emoji 分段，小红书体建议每段配一个情绪符号",
+            "缺少话题标签，建议文末挂 5-8 个 # 标签"
+          ],
+          "platform": "小红书"
+        }
+      }
+    },
+    "rewrite_suggestions": [
+      "[抖音] 开头缺少钩子（提问/惊叹），黄金3秒吸引力不足",
+      "[小红书] 缺少 emoji 分段，小红书体建议每段配一个情绪符号",
+      "[小红书] 缺少话题标签，建议文末挂 5-8 个 # 标签"
+    ],
+    "fact_check": {
+      "strategy": "关键数据发布前需联网核验或替换为可溯源数据",
+      "verified_fields": [
+        "价格区间",
+        "平台规则",
+        "行业数据"
+      ]
+    }
+  },
+  "export": {
+    "json": "可下载完整JSON",
+    "docs": "可下载Markdown脚本文档",
+    "editing": "分镜表可直接导入剪映/CapCut参照拍摄"
+  }
+}

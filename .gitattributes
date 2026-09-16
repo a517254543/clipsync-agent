@@ -1,0 +1,16 @@
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.mp3 binary
+*.ico binary
+*.exe binary
+*.zip binary
+
+*.py text
+*.js text
+*.json text
+*.md text
+*.html text
+*.css text
+*.spec text

@@ -1,0 +1,9 @@
+{
+  "llm": {
+    "provider": "deepseek",
+    "api_key": "",
+    "base_url": "",
+    "model": "",
+    "timeout": 60
+  }
+}

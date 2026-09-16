@@ -73,7 +73,9 @@
 
 ### 方式一：exe 可执行程序（推荐，双击即用）
 
-1. 双击 `一拍即合ClipSyncAgent.exe`；
+**直接下载 → [ClipSyncAgent-v0.2-win64.exe](https://github.com/a517254543/clipsync-agent/releases/latest/download/ClipSyncAgent-v0.2-win64.exe)**（18.9 MB，免安装）
+
+1. 双击 `ClipSyncAgent-v0.2-win64.exe`；
 2. 控制台窗口显示服务地址，**浏览器会自动打开**；
 3. 用完后关闭控制台窗口即可退出。
 
@@ -81,6 +83,7 @@
 > 端口被占用时自动切换到 8522、8523…；
 > 配音音频与 JSON 内容包保存在 exe 同级 `output/` 目录；
 > 接入大模型时编辑 exe 同级 `config.json` 填入 api_key 后重启。
+> exe 未经代码签名，Windows SmartScreen 可能提示「未知发布者」，选择「仍要运行」即可。
 
 ### 方式二：源码运行
 
